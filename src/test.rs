@@ -7,6 +7,7 @@ extern "C" {
     static __gmp_bits_per_limb: c_int;
 }
 
+
 #[test]
 fn test_limb_size() {
     // We are assuming that the limb size is the same as the pointer size.

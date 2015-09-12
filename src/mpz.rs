@@ -1,5 +1,5 @@
 use libc::{c_char, c_int, c_long, c_ulong, c_void, c_double, size_t};
-use super::rand::gmp_randstate_t;
+use super::rand::{RandState,gmp_randstate_t};
 use std::convert::{From, Into};
 use std::mem::{uninitialized,size_of};
 use std::{fmt, hash};
@@ -858,4 +858,12 @@ impl hash::Hash for Mpz {
 			}
         }
     }
+}
+
+use quickcheck::{Arbitrary, Gen};
+
+impl Arbitrary for Mpz {
+  fn arbitrary<G: Gen>(_: &mut G) -> Mpz {
+    return RandState::new().urandom_2exp(128);
+  }
 }

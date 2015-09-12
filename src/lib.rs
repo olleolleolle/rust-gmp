@@ -1,9 +1,13 @@
 #![crate_name = "gmp"]
+#![cfg_attr(test, feature(plugin))]
+#![cfg_attr(test, plugin(quickcheck_macros))]
 
 #![warn(deprecated)]
 #![allow(non_camel_case_types)]
 
 extern crate libc;
+
+extern crate quickcheck;
 
 macro_rules! gen_overloads_inner {
     ($tr:ident, $meth:ident, $T:ident) => {

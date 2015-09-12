@@ -12,3 +12,5 @@ name = "gmp"
 
 [dependencies]
 libc = "*"
+quickcheck = "0.2"
+quickcheck_macros = "0.2"
